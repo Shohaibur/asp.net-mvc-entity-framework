@@ -11,7 +11,13 @@
        
     </tr>
 
-
+    @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.Id</td>
+                    <td>@d.Name</td>
+                </tr>
+            }
 
 
 </table>
