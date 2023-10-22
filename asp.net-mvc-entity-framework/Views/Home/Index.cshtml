@@ -1,23 +1,27 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-<a href="/Home/Create">Create</a>
+
+<a href="/Home/Create" class="btn btn-primary">Create</a>
+
 <table class="tablet table-bordered">
     <tr>
         <th>Id</th>
         <th>Name</th>
-       
+        <th></th>
+
     </tr>
 
     @foreach (var d in Model)
-            {
-                <tr>
-                    <td>@d.Id</td>
-                    <td>@d.Name</td>
-                </tr>
-            }
+    {
+        <tr>
+            <td>@d.Id</td>
+            <td>@d.Name</td>
+            <td><a href="/Home/Edit" class="btn btn-secondary">Edit</a></td>
+        </tr>
 
+    }
 
 </table>

@@ -30,6 +30,32 @@ namespace asp.net_mvc_entity_framework.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var db = new Entities();
+            var data = (from d in db.Departments
+                        where d.Id == id
+                        select d).SingleOrDefault();
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult Edit(Department d)
+        {
+            var db = new Entities();
+            var data =(from dp in db.Departments
+                       where dp.Name.Equals(d.Name)
+                       select dp).SingleOrDefault();
+            var exdata = db.Departments.Find(d.Id);
+           // db.Departments.Remove(exdata);
+            exdata.Name = d.Name;
+            /*exdata.F1 = d.F1;
+            exdata.F2 = d.F2;*/
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
 
         public ActionResult About()
         {
