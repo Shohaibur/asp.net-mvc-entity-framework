@@ -12,7 +12,11 @@ namespace asp.net_mvc_entity_framework.Controllers
         {
             return View();
         }
-
+        /*[HttpGet]*/
+        public ActionResult Create()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
