@@ -11,6 +11,7 @@
         <th>Id</th>
         <th>Name</th>
         <th></th>
+        <th></th>
 
     </tr>
 
@@ -19,7 +20,8 @@
         <tr>
             <td>@d.Id</td>
             <td>@d.Name</td>
-            <td><a href="/Home/Edit" class="btn btn-secondary">Edit</a></td>
+            <td><a class="btn btn-primary" href="/home/edit/@d.Id">Edit</a> </td>
+            <td><a class="btn btn-primary" href="/home/details/@d.Id">Details </a> </td>
         </tr>
 
     }

@@ -13,10 +13,10 @@ namespace asp.net_mvc_entity_framework.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class Entities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities1()
+            : base("name=Entities1")
         {
         }
     
@@ -26,6 +26,7 @@ namespace asp.net_mvc_entity_framework.EF
         }
     
         public virtual DbSet<Cours> Courses { get; set; }
+        public virtual DbSet<CourseStudent> CourseStudents { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

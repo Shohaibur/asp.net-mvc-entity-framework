@@ -12,7 +12,7 @@ namespace asp.net_mvc_entity_framework.Controllers
     {
         public ActionResult Index()
         {
-            var db = new Entities();
+            var db = new Entities1();
             var data = db.Departments.ToList();
             return View(data);
         }
@@ -24,7 +24,7 @@ namespace asp.net_mvc_entity_framework.Controllers
         [HttpPost]
         public ActionResult Create(Department d)
         {
-            var db = new Entities();
+            var db = new Entities1();
             db.Departments.Add(d);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -33,7 +33,7 @@ namespace asp.net_mvc_entity_framework.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var db = new Entities();
+            var db = new Entities1();
             var data = (from d in db.Departments
                         where d.Id == id
                         select d).SingleOrDefault();
@@ -42,7 +42,7 @@ namespace asp.net_mvc_entity_framework.Controllers
         [HttpPost]
         public ActionResult Edit(Department d)
         {
-            var db = new Entities();
+            var db = new Entities1();
             var data =(from dp in db.Departments
                        where dp.Name.Equals(d.Name)
                        select dp).SingleOrDefault();
@@ -55,6 +55,13 @@ namespace asp.net_mvc_entity_framework.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public ActionResult Details(int id) {
+            var db = new Entities1();
+            var data = db.Departments.Find(id);
+            return View(data);
+        }
+
 
 
         public ActionResult About()
